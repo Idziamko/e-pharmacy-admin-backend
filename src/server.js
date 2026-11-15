@@ -4,8 +4,10 @@ import express from 'express';
 import helmet from 'helmet';
 import pinoHttp from 'pino-http';
 import { connectMongoDB } from './db/connectMongoDB.js';
+import { seedDatabase } from './db/seedDatabase.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
+import { User } from './models/user.js';
 import customersRouter from './routes/customersRouter.js';
 import dashboardRouter from './routes/dashboardRouter.js';
 import ordersRouter from './routes/ordersRouter.js';
@@ -53,6 +55,12 @@ app.use(notFoundHandler);
 app.use(errorHandler);
 
 await connectMongoDB();
+
+const usersCount = await User.countDocuments();
+if (usersCount === 0) {
+  await seedDatabase();
+  console.log('Database was empty, seed data added');
+}
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

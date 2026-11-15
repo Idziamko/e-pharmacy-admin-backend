@@ -65,6 +65,12 @@ npm run dev
 
 `npm run seed` clears the database, fills it with the data from
 `src/db/data` and creates the admin user from `ADMIN_*` variables.
+If the database is empty, the server adds this data on the first start.
+
+## Deploy
+
+The API is deployed on Render. Settings for the service are in
+`render.yaml`, only `MONGODB_URL` and `ADMIN_PASSWORD` are set by hand.
 
 ## Environment variables
 
