@@ -39,3 +39,11 @@ export const updateSupplier = async (req, res) => {
   }
   res.status(200).json(supplier);
 };
+
+export const deleteSupplier = async (req, res) => {
+  const supplier = await Supplier.findByIdAndDelete(req.params.supplierId);
+  if (!supplier) {
+    throw createHttpError(404, 'Supplier not found');
+  }
+  res.status(200).json({ id: supplier._id });
+};

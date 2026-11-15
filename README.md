@@ -3,7 +3,8 @@
 REST API for the E-Pharmacy admin dashboard. It handles admin login with JWT,
 dashboard statistics, orders, products, suppliers and customers.
 
-- **API URL:** _will be added after deploy_
+- **API URL:** https://e-pharmacy-admin-backend-y37k.onrender.com/api
+- **Live demo:** https://e-pharmacy-admin-one.vercel.app
 - **Frontend repository:** [e-pharmacy-admin](https://github.com/Idziamko/e-pharmacy-admin)
 - **Design (Figma):** [Admin dashboard](https://www.figma.com/file/z1JklHHxX8kTGo3zWvlzat/Admin-dashboard)
 
@@ -33,6 +34,7 @@ All routes except login need the `Authorization: Bearer <token>` header.
 | GET    | `/api/suppliers`             | Suppliers list                               |
 | POST   | `/api/suppliers`             | Add supplier                                 |
 | PUT    | `/api/suppliers/:supplierId` | Edit supplier                                |
+| DELETE | `/api/suppliers/:supplierId` | Delete supplier                              |
 | GET    | `/api/customers`             | Customers list                               |
 | GET    | `/api/customers/:customerId` | Customer details                             |
 
@@ -69,7 +71,8 @@ If the database is empty, the server adds this data on the first start.
 
 ## Deploy
 
-The API is deployed on Render. Settings for the service are in
+The API is deployed on Render (free plan, so the first request after a
+break can take up to a minute). Settings for the service are in
 `render.yaml`, only `MONGODB_URL` and `ADMIN_PASSWORD` are set by hand.
 
 ## Environment variables

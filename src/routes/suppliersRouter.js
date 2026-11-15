@@ -2,6 +2,7 @@ import { celebrate } from 'celebrate';
 import { Router } from 'express';
 import {
   createSupplier,
+  deleteSupplier,
   getSuppliers,
   updateSupplier,
 } from '../controllers/suppliersController.js';
@@ -25,5 +26,6 @@ router.put(
   celebrate(updateSupplierSchema),
   updateSupplier,
 );
+router.delete('/:supplierId', isValidId('supplierId'), deleteSupplier);
 
 export default router;
