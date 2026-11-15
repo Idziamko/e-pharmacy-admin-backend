@@ -13,7 +13,7 @@ export const getDashboard = async (req, res) => {
   const recentCustomers = await Customer.find()
     .sort({ registerDate: -1 })
     .limit(5)
-    .select('name email photo spent');
+    .select('name email photo spent address');
 
   const incomeExpenses = await Transaction.find()
     .sort({ createdAt: 1 })

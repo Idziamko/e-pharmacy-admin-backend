@@ -1,5 +1,6 @@
 import createHttpError from 'http-errors';
 import { Customer } from '../models/customer.js';
+import { Order } from '../models/order.js';
 import { buildNameFilter, buildSort } from '../utils/buildFilter.js';
 import { getPagination, getPaginationData } from '../utils/getPagination.js';
 
@@ -28,5 +29,9 @@ export const getCustomerById = async (req, res) => {
   if (!customer) {
     throw createHttpError(404, 'Customer not found');
   }
-  res.status(200).json(customer);
+  const orders = await Order.find({ name: customer.name }).sort({
+    orderDate: -1,
+  });
+
+  res.status(200).json({ ...customer.toObject(), orders });
 };
