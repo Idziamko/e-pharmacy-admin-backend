@@ -4,7 +4,7 @@ REST API for the E-Pharmacy admin dashboard. It handles admin login with JWT,
 dashboard statistics, orders, products, suppliers and customers.
 
 - **API URL:** _will be added after deploy_
-- **Frontend repository:** _will be added after deploy_
+- **Frontend repository:** [e-pharmacy-admin](https://github.com/Idziamko/e-pharmacy-admin)
 - **Design (Figma):** [Admin dashboard](https://www.figma.com/file/z1JklHHxX8kTGo3zWvlzat/Admin-dashboard)
 
 ## Tech stack
